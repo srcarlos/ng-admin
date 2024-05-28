@@ -1,0 +1,19 @@
+   .entry {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.75rem;
+   }
+
+
+   .bottomStick {
+      width: 100%;
+      /*border-top:1px solid green;border-bottom:1px solid green;*/
+      position: absolute;
+      bottom: 0
+   }
+
+   .bottomRelative {
+
+      position: relative;
+   }

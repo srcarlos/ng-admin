@@ -1,0 +1,8 @@
+<mat-sidenav-container autosize="true">
+  <mat-sidenav  [ngClass]="!isCollapsed ? 'expanded' : ''" [mode]="isMobile ? 'over' : 'side'" [opened]="isMobile ? 'false' : 'true'" >
+    <app-sidenav-list [isCollapsed]="isCollapsed"   />
+  </mat-sidenav>
+  <app-sidenav-content/>
+</mat-sidenav-container>
+
+ <!-- (mouseenter)="onMouseEnter()" -->

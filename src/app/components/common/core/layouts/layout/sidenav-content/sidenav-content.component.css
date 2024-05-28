@@ -1,0 +1,14 @@
+mat-sidenav-content {
+  justify-content: center;
+  align-items: center;
+  padding-top: 0rem;
+  /* @media screen and (min-width: 600px) {
+      padding-top: 4rem;
+    } */
+  flex: 1 1 auto;
+  margin-left: 5px !important;
+  height: calc(100vh);
+  /*
+   - 64px
+  */
+}
