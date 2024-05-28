@@ -1,0 +1,49 @@
+<h1>Dashboard 1</h1>
+
+<mat-grid-list  #grid [cols]="cols"  rowHeight="20s:11" >
+     <mat-grid-tile 
+   [colspan] = "1"
+   [rowspan] = "4">
+
+     <app-dummy-table  ></app-dummy-table>
+
+   </mat-grid-tile>
+   <mat-grid-tile  
+   [colspan] = "1"
+   [rowspan] = "2"> <app-bar-chart></app-bar-chart>
+   </mat-grid-tile>
+   <mat-grid-tile 
+   [colspan] = "1"
+   [rowspan] = "2"> <app-line-chart></app-line-chart>
+   </mat-grid-tile>
+   <mat-grid-tile 
+   [colspan] = "1"
+   [rowspan] = "2"> <app-barline-chart></app-barline-chart>
+   </mat-grid-tile>
+
+      <mat-grid-tile  
+   [colspan] = "1"
+   [rowspan] = "2"> <app-card></app-card>
+   </mat-grid-tile>
+   <mat-grid-tile 
+   [colspan] = "1"
+   [rowspan] = "2"> <app-card></app-card>
+   </mat-grid-tile>
+   <mat-grid-tile 
+   [colspan] = "1"
+   [rowspan] = "2"><app-card></app-card>
+   </mat-grid-tile>
+
+</mat-grid-list>
+
+<!-- <mat-grid-list   #grid [cols]="cols" rowHeight="1:0.9" gutterSize="20px" >
+  <mat-grid-tile><app-bar-chart></app-bar-chart> </mat-grid-tile>
+  <mat-grid-tile><app-line-chart></app-line-chart> </mat-grid-tile>
+  <mat-grid-tile><app-barline-chart></app-barline-chart> </mat-grid-tile>
+  <mat-grid-tile><app-dummy-activity></app-dummy-activity></mat-grid-tile>
+
+  <mat-grid-tile><app-dummy-activity></app-dummy-activity></mat-grid-tile>
+  <mat-grid-tile><app-card></app-card></mat-grid-tile>
+  <mat-grid-tile><app-card></app-card></mat-grid-tile>
+   <mat-grid-tile><app-dummy-activity></app-dummy-activity></mat-grid-tile>
+</mat-grid-list> -->

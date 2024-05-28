@@ -1,0 +1,98 @@
+<h1>Module Name</h1>  
+<mat-toolbar class="mat-elevation-z1">
+  <button
+    mat-raised-button
+    color="primary"
+    aria-label="Add" >
+    <mat-icon>add</mat-icon>
+    Add
+  </button>
+
+  <button mat-raised-button (click)="openDialog('0ms', '0ms')">Delete</button>
+
+  <span class="example-spacer"></span>
+
+  <button
+    mat-icon-button
+    aria-label="Example icon button with a vertical three dot icon"
+  >
+    <mat-icon>refresh</mat-icon>
+  </button>
+
+  <button
+    mat-icon-button
+    [matMenuTriggerFor]="menu"
+    aria-label="Example icon button with a vertical three dot icon"
+  >
+    <mat-icon>more_vert</mat-icon>
+  </button>
+
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>Select All</button>
+    <button mat-menu-item>Opción 2</button>
+    <button mat-menu-item disabled>Opción 3 (deshabilitada)</button>
+  </mat-menu>
+</mat-toolbar>
+
+<div class="example-container mat-elevation-z1">
+  <table mat-table [dataSource]="data" class="mat-elevation-z1">
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- select Column -->
+
+    <!-- Checkbox Column -->
+    <ng-container matColumnDef="select">
+      <th mat-header-cell *matHeaderCellDef style="width: 1rem"></th>
+      <td mat-cell *matCellDef="let element" style="width: 1rem">
+        <mat-checkbox></mat-checkbox>
+      </td>
+    </ng-container>
+
+    <!-- ID Column -->
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>ID</th>
+      <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+    </ng-container>
+
+    <!-- Email Column -->
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef>Email</th>
+      <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+    </ng-container>
+
+    <!-- actions Column -->
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef style="width: 1rem">Options</th>
+      <td mat-cell *matCellDef="let element" style="width: 1rem">
+        <button
+          mat-icon-button
+          [matMenuTriggerFor]="menuRow"
+          aria-label="Example icon button with a vertical three dot icon"
+        >
+          <mat-icon>more_vert</mat-icon>
+        </button>
+
+        <mat-menu #menuRow="matMenu">
+          <button mat-menu-item (click)="edit(element)">
+            <mat-icon>delete</mat-icon> Delete
+          </button>
+          <button mat-menu-item (click)="delete(element)">
+            <mat-icon>edit</mat-icon> Edit
+          </button>
+        </mat-menu>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>
