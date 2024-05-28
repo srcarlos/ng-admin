@@ -1,0 +1,59 @@
+<div class="container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Login </mat-card-title>
+
+      <!-- <mat-card-subtitle>Start</mat-card-subtitle> -->
+    </mat-card-header>
+
+    <mat-card-content>
+      <form [formGroup]="loginForm" (ngSubmit)="submit()" class="form">
+        <p>
+          <mat-form-field appearance="fill" class="form-element">
+            <mat-label>Username</mat-label>
+            <input
+              type="text"
+              matInput
+              placeholder="Username"
+              formControlName="username"
+              required
+              id="username"
+            />
+            <mat-icon matSuffix>people</mat-icon>
+            <!-- <mat-hint>Username</mat-hint> -->
+          </mat-form-field>
+        </p>
+
+        <p>
+          <mat-form-field appearance="fill" class="form-element">
+            <mat-label>Password</mat-label>
+            <input
+              type="password"
+              matInput
+              placeholder="Password"
+              required
+              formControlName="password"
+            />
+            <mat-icon matSuffix>password</mat-icon>
+            <!-- <mat-hint>Username</mat-hint> -->
+          </mat-form-field>
+        </p>
+
+        <p *ngIf="error" class="error">
+          {{ error }}
+        </p>
+
+        <footer>
+          <button type="button" mat-button mat-raised-button color="primary" (click)="goToPage('public/signup')">
+            <mat-icon matSuffix>person_add</mat-icon> SignUp
+          </button>
+          <span class="primary-btns">
+            <button type="submit" [disabled]="!loginForm.valid" mat-button mat-raised-button color="primary">
+              <mat-icon matSuffix>login</mat-icon> Login
+            </button>
+          </span>
+        </footer>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
