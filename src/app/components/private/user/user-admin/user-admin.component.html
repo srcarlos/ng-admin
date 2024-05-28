@@ -1,0 +1,49 @@
+<div>
+<h1>{{title}}</h1> 
+</div>
+<!-- toolbar-->
+<mat-toolbar class="mat-elevation-z1">
+  <section>
+
+  <div class="example-button-row">
+   
+  <button
+    mat-raised-button
+    (click)="addModal()"
+    color="primary"
+    aria-label="Add" >
+    <mat-icon>add</mat-icon>
+    Add
+  </button> 
+
+    <!-- <button mat-raised-button (click)="addModal()">Delete</button> -->
+  </div>
+</section>
+
+
+  <span class="example-spacer"></span>
+
+  <button
+    mat-icon-button
+    aria-label="Example icon button with a vertical three dot icon"
+  >
+    <mat-icon>refresh</mat-icon>
+  </button>
+
+  <button
+    mat-icon-button
+    [matMenuTriggerFor]="menu"
+    aria-label="Example icon button with a vertical three dot icon"
+  >
+    <mat-icon>more_vert</mat-icon>
+  </button>
+
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>Select All</button>
+    <!-- <button mat-menu-item>Opción 2</button>
+    <button mat-menu-item disabled>Opción 3 (deshabilitada)</button> -->
+  </mat-menu>
+</mat-toolbar>
+
+
+<app-user-list></app-user-list>
