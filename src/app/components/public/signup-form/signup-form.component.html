@@ -1,0 +1,72 @@
+
+<div class="container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>SignUp </mat-card-title>
+
+      <!-- <mat-card-subtitle>Start</mat-card-subtitle> -->
+    </mat-card-header>
+
+    <mat-card-content>
+      <form [formGroup]="form" (ngSubmit)="submit()" class="form">
+
+          <p>
+          <mat-form-field appearance="fill" class="form-element">
+            <mat-label>Full Name</mat-label>
+            <input
+              type="text"
+              matInput
+              placeholder="FullName"
+              formControlName="fullName"
+            />
+            <mat-icon matSuffix>people</mat-icon>
+            <!-- <mat-hint>FullName</mat-hint> -->
+          </mat-form-field>
+        </p>
+
+        <p>
+          <mat-form-field appearance="fill" class="form-element">
+            <mat-label>Username</mat-label>
+            <input
+              type="text"
+              matInput
+              placeholder="Username"
+              formControlName="username"
+            />
+            <mat-icon matSuffix>people</mat-icon>
+            <!-- <mat-hint>Username</mat-hint> -->
+          </mat-form-field>
+        </p> 
+
+        <p>
+          <mat-form-field appearance="fill" class="form-element">
+            <mat-label>Password</mat-label>
+            <input
+              type="password"
+              matInput
+              placeholder="Password"
+              formControlName="password"
+            />
+            <mat-icon matSuffix>password</mat-icon>
+            <!-- <mat-hint>Username</mat-hint> -->
+          </mat-form-field>
+        </p>
+
+        <p *ngIf="error" class="error">
+          {{ error }} 
+        </p>
+
+    
+        <footer>
+      <button type="button" mat-button mat-raised-button  (click)="goToPage('public/login')">
+        <mat-icon matSuffix>arrow_back</mat-icon> back
+      </button>
+      <span class="primary-btns">
+          <button type="submit" mat-button  mat-raised-button color="primary" >  <mat-icon matSuffix>exit_to_app</mat-icon>  Signup </button>
+      </span>
+    </footer>
+    
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
