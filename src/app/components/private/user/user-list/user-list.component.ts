@@ -67,14 +67,6 @@ export class UserListComponent implements AfterViewInit {
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
-
-  getUserList() {
-    this.userService.getUserList().subscribe((response) => {
-      // this.data = response.data;
-      this.dataSource.data = response.data;
-    });
-  }
-
   editModal(element: any) {
     this.dialogRef = this.dialog.open(UserEditComponent, {
       width: '500px',

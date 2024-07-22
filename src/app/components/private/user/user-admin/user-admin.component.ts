@@ -58,7 +58,6 @@ export class UserAdminComponent {
 
   refresh() {
     console.log(`UserAdminComponent - refresh `);
-
     this.userService.getUserList().subscribe((response) => {
       console.log(`UserAdminComponent - getUserList:`, response.data);
       this.users = response.data;
@@ -73,6 +72,7 @@ export class UserAdminComponent {
     });
   }
   ngOnInit(): void {
+     console.log('UserAddComponent- ngOnInit');
     this.refresh();
   }
 }
