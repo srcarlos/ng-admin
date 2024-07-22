@@ -1,6 +1,6 @@
 <div class="example-container mat-elevation-z1">
  
-  <table mat-table [dataSource]="data" class="mat-elevation-z1">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z1">
     <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
 
@@ -82,9 +82,9 @@
 </div>
   <mat-paginator
      (page)="handlePageEvent($event)"
-       [length]="100" 
-      [pageSize]="10"
-      [pageSizeOptions]="[5, 10, 25, 100]"
+       [length]= length 
+      [pageSize]=pageSize
+      [pageSizeOptions]=pageSizeOptions
       aria-label="Select page">
 </mat-paginator>
  

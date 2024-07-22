@@ -25,7 +25,8 @@
 
   <button
     mat-icon-button
-    aria-label="Example icon button with a vertical three dot icon"
+    aria-label="refresh"
+      (click)="refresh()"
   >
     <mat-icon>refresh</mat-icon>
   </button>
@@ -46,4 +47,4 @@
 </mat-toolbar>
 
 
-<app-user-list></app-user-list>
+<app-user-list [data]="users"></app-user-list>

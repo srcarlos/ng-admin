@@ -12,6 +12,7 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser-esbuild",
+
           "options": {
             "outputPath": "dist/ng-admin",
             "index": "src/index.html",
@@ -44,7 +45,7 @@
             "development": {
               "buildOptimizer": true,
               "optimization": false,
-              "vendorChunk": true,
+
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true,

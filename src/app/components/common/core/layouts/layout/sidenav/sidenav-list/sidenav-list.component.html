@@ -13,21 +13,27 @@
     </span>
   </a> -->
 
+   <a mat-list-item routerLink="dashboard">
+    <span class="entry">
+      <mat-icon>dashboard</mat-icon>
+      <span *ngIf="!isCollapsed">Dashboard</span>
+    </span>
+  </a>
+
+
+   <a mat-list-item routerLink="activity">
+    <span class="entry">
+      <mat-icon>timeline</mat-icon>
+      <span *ngIf="!isCollapsed">Activity</span>
+    </span>
+  </a>
+
    <a mat-list-item routerLink="user-admin">
     <span class="entry">
       <mat-icon>people</mat-icon>
       <span *ngIf="!isCollapsed">Users</span>
     </span>
   </a>
-
-    <!-- <a mat-list-item routerLink="activity">
-    <span class="entry">
-      <mat-icon>people</mat-icon>
-      <span *ngIf="!isCollapsed">Actvity</span>
-    </span>
-  </a> -->
-
-
 
      <!-- This is where the bottom items reside.-->
     <div [ngClass]='appropriateClass'> 

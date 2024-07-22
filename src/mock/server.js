@@ -3,6 +3,8 @@
 // a path needs to exist on local server with the following
 
 // ... app is an express app
+
+let users = [];
 const cors = require("cors");
 const bodyParser = require("body-parser");
 
@@ -10,6 +12,14 @@ const express = require("express");
 const app = express();
 const port = 3000;
 app.use(cors());
+app.use(
+  cors({
+    origin: "*", // Specify the allowed origin(s)
+    methods: ["GET", "POST", "PUT", "DELETE"], // Specify the allowed HTTP methods
+    allowedHeaders: ["Content-Type", "Authorization"], // Specify the allowed headers
+  })
+);
+
 // parse various different custom JSON types as JSON
 app.use(bodyParser.json({ type: "application/*+json" }));
 app.use(
@@ -86,16 +96,19 @@ app.get("/api/auth/me", (req, res) => {
 app.post("/api/auth/users", (req, res) => {
   console.log("add /api/auth/users");
   // read req and save cookie
+
   const body = req.body;
 
-  const data = {
-    fullName: "fullName",
-    username: "userName",
-    email: "some_refresh_token",
-    status: "ACTIVE",
-    role: "ADMIN",
+  const user = {
+    ...body,
+    id: users.length + 1 + "",
+    createdAt: new Date(),
+    updatedAt: new Date(),
   };
-  const response = { data };
+
+  users.push(user);
+
+  const response = { data: user };
 
   res.send(response);
 });
@@ -104,9 +117,9 @@ app.get("/api/auth/users", (req, res) => {
   console.log("get list /api/auth/users");
   // read req and save cookie
 
-  const data = [];
+  const data = users;
 
-  for (let i = 1; i < 100; i++) {
+  for (let i = 1; i < 1; i++) {
     let row = {
       id: i + "",
       fullName: "full Name",
@@ -123,7 +136,7 @@ app.get("/api/auth/users", (req, res) => {
   res.send(response);
 });
 
-app.put(" put /api/auth/users", (req, res) => {
+app.put("/api/auth/users", (req, res) => {
   console.log("add /api/auth/users");
   // read req and save cookie
   const body = req.body;
@@ -140,7 +153,7 @@ app.put(" put /api/auth/users", (req, res) => {
   res.send(response);
 });
 
-app.get("get one /api/auth/users/{id}", (req, res) => {
+app.get("/api/auth/users/{id}", (req, res) => {
   console.log("add /api/auth/users");
   // read req and save cookie
 

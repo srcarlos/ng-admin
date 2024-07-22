@@ -27,7 +27,7 @@ import { AuthService } from 'src/app/_services/auth/auth.service';
 export class SidenavListComponent {
   events: string[] = [];
   appropriateClass: string = '';
-  @HostListener('window:resize', ['$event'])
+
   @Input()
   isCollapsed = false;
 
@@ -41,8 +41,8 @@ export class SidenavListComponent {
   }
 
   getScreenHeight() {
-    console.log(window.innerHeight);
-
+    //console.log('getScreenHeight:', window.innerHeight);
+    //  console.log('window:', window);
     if (window.innerHeight <= 412) {
       this.appropriateClass = 'bottomRelative';
     } else {
@@ -56,5 +56,10 @@ export class SidenavListComponent {
     this.authState.redirectUrl = ''; // null;
     // also local logout if using local server to set cookie
     this.authService.Logout().subscribe();
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(e: any) {
+    this.getScreenHeight();
   }
 }

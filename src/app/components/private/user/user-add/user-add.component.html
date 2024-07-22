@@ -7,6 +7,13 @@
     </mat-card-header>
 
     <mat-card-content>
+
+        <div class="md-errors-spacer" [hidden]="this.error">
+            <div  *ngIf="this.error">
+                {{error}}
+            </div>
+        </div>
+
       <form [formGroup]="form" (ngSubmit)="submit()" class="form">
         <p>
           <mat-form-field appearance="fill" class="form-element">
@@ -16,6 +23,7 @@
               matInput
               placeholder="FullName"
               formControlName="fullName"
+              required="true"
             />
             <mat-icon matSuffix>people</mat-icon>
             <!-- <mat-hint>FullName</mat-hint> -->
@@ -30,6 +38,7 @@
               matInput
               placeholder="Username"
               formControlName="username"
+              required="true"
             />
             <mat-icon matSuffix>people</mat-icon>
             <!-- <mat-hint>Username</mat-hint> -->
@@ -44,8 +53,11 @@
               matInput
               placeholder="Email"
               formControlName="email"
+              required="true"
+             
             />
             <mat-icon matSuffix>email</mat-icon>
+
             <!-- <mat-hint>Username</mat-hint> -->
           </mat-form-field>
         </p>
@@ -60,6 +72,7 @@
               placeholder="Password"
               autocomplete="false"
               formControlName="password"
+              required="true"
             />
             <mat-icon matSuffix>password</mat-icon>
             <!-- <mat-hint>Username</mat-hint> -->
@@ -69,7 +82,12 @@
         <p>
           <mat-form-field>
             <mat-label>Status</mat-label>
-            <mat-select>
+            <mat-select 
+              matInput 
+              formControlName="status"
+              required="true"
+            >
+              
               <mat-option
                 *ngFor="let option of userStatus"
                 [value]="option.value"
@@ -89,7 +107,11 @@
           <mat-form-field>
             <mat-label>Role</mat-label>
 
-            <mat-select>
+            <mat-select
+             matInput 
+              formControlName="role"
+              required="true"
+              >
               <mat-option
                 *ngFor="let option of userRole"
                 [value]="option.value"
@@ -114,7 +136,7 @@
             <mat-icon matSuffix>cancel</mat-icon> Cancel
           </button>
           <span class="primary-btns">
-            <button type="submit" mat-button mat-raised-button color="primary">
+            <button type="submit" mat-button mat-raised-button color="primary"  [disabled]="!this.form.valid" >
               <mat-icon matSuffix>save</mat-icon> Save
             </button>
           </span>

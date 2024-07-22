@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -33,10 +33,13 @@ import { AuthState } from 'src/app/_services/auth/auth.state';
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.css'],
 })
-export class LoginFormComponent {
+export class LoginFormComponent implements OnInit {
   loginForm: FormGroup = new FormGroup({
     username: new FormControl(['']),
-    password: new FormControl(''),
+    password: new FormControl(
+      '',
+      Validators.pattern('^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}$')
+    ),
   });
 
   @Input() error: string | null = null;
@@ -54,6 +57,7 @@ export class LoginFormComponent {
 
   submit() {
     const { username, password } = this.loginForm.getRawValue();
+
     this.authService
       .Login(username, password)
       .pipe(
@@ -68,7 +72,7 @@ export class LoginFormComponent {
         next: (result) => {
           // redirect to dashbaord
           this.router.navigateByUrl(
-            this.authState.redirectUrl || '/private/activity'
+            this.authState.redirectUrl || '/private/dashboard'
           );
         },
         error: (err) => {
@@ -81,4 +85,12 @@ export class LoginFormComponent {
   goToPage(pageName: string) {
     this.router.navigate([`${pageName}`]);
   }
+
+  ngOnInit() {
+    this.loginForm.reset();
+    this.loginForm.get('username')?.setValue('admin');
+    this.loginForm.get('password')?.setValue('Admin1234+');
+  }
+
+  // submitEM.emit(this.loginForm.value
 }

@@ -42,6 +42,7 @@ export class SidenavComponent {
 
   ngOnInit() {
     this.observer.observe(['(max-width: 800px)']).subscribe((screenSize) => {
+      //console.log('screenSize', screenSize);
       if (screenSize.matches) {
         this.isMobile = true;
       } else {

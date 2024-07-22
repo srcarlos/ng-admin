@@ -22,7 +22,6 @@ export interface IAuthInfo {
 // }
 
 export const NewAuthInfo = (data: any): IAuthInfo => {
-  console.log(data);
   return {
     payload: {
       email: data.payload.email,

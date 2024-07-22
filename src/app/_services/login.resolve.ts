@@ -20,7 +20,7 @@ export class LoginResolve implements Resolve<boolean> {
         // if logged in succesfully, go to last url
         if (user) {
           this.router.navigateByUrl(
-            this.authState.redirectUrl || '/private/activity'
+            this.authState.redirectUrl || '/private/dashboard'
           );
         }
         // does not really matter, I either go in or navigate away

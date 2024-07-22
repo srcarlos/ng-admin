@@ -19,7 +19,7 @@ export class AuthState {
   // redirect update
   get redirectUrl(): string {
     const url = localStorage.getItem('redirectUrl');
-    if (!url) return '/private/activity';
+    if (!url) return '/private/dashboard';
     return url;
   }
   set redirectUrl(value: string) {

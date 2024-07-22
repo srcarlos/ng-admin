@@ -64,8 +64,6 @@ export class AppComponent implements OnInit {
       )
       .subscribe({
         next: (response) => {
-          console.log('recieved', response);
-
           // here you should set account state if you have it
           // then you can use it elsewhere
           // this.accountState.SetState(response);

@@ -7,8 +7,11 @@
       "type": "chrome",
       "request": "launch",
       "preLaunchTask": "npm: start",
-      "url": "http://localhost:4200/"
+      "url": "http://localhost:4200/",
+      "port": 4200,
+      "urlFilter": "http://localhost:4200/*"
     },
+
     {
       "name": "ng test",
       "type": "chrome",
